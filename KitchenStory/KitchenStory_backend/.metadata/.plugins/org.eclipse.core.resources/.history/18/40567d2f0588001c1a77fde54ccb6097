@@ -1,0 +1,19 @@
+package com.example.service;
+
+import org.springframework.stereotype.Service;
+
+import com.example.model.AdminLogin;
+import com.example.repository.AdminRepository;
+
+@Service
+public class AdminServiceImpl implements AdminService {
+
+	AdminRepository adminRepository;
+	@Override
+	public AdminLogin findByAdminMail(String adminEmail,String adminPassword) {
+
+		
+		return null;
+	}
+
+}

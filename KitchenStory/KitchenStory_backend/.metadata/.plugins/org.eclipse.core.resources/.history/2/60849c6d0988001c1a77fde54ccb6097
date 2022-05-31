@@ -1,0 +1,27 @@
+package com.example.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.model.AdminLogin;
+import com.example.repository.AdminRepository;
+
+@Service
+public class AdminServiceImpl implements AdminService {
+
+	@Autowired
+	AdminRepository adminRepository;
+	
+	@Override
+	public AdminLogin findByAdminMail(String adminEmail,String adminPassword) {
+
+		if (adminRepository.findById(adminEmail).isPresent()) {
+			AdminLogin admin = adminRepository.findById(adminEmail).get();
+			if (admin.getAdminPassword() == adminPassword) {
+				return admin;
+			}
+		}
+		return null;
+	}
+
+}
